@@ -1,0 +1,149 @@
+/* Main CSS for Student Dashboard - Using Bootstrap */
+body {
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #224abe 10%, #1a3a8a 100%);
+}
+
+.sidebar .nav-link {
+  color: #d1d3e0;
+  font-weight: 500;
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.topbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.btn-primary {
+  background-color: #224abe;
+  border-color: #224abe;
+}
+
+.btn-primary:hover {
+  background-color: #1a3a8a;
+  border-color: #1a3a8a;
+}
+
+.badge-success {
+  background-color: #28a745;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+}
+
+#content-wrapper {
+  background-color: #f8f9fa;
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+.breadcrumb-item.active {
+  color: #858796;
+}
+
+footer.sticky-footer {
+  background-color: #fff;
+  border-top: 1px solid #e3e6f0;
+}
+
+.table-responsive {
+  border: none;
+}
+
+.table-bordered {
+  border: 1px solid #e3e6f0;
+}
+
+.table thead th {
+  border-bottom: 2px solid #e3e6f0;
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #224abe;
+}
+
+.table tbody td {
+  border-color: #e3e6f0;
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.img-profile {
+  height: 2rem;
+  width: 2rem;
+  object-fit: cover;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.modal-body {
+  color: #595959;
+}
+
+/* Animations */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  animation: slideInDown 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    transition: left 0.3s ease-out;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  #content-wrapper {
+    margin-left: 0;
+  }
+}

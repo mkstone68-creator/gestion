@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url();
+    color: #fff;
+    animation: fadeIn 1s ease-out;
+}
+
+.attestation-form {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    padding: 40px;
+    animation: slideUp 0.7s ease-in-out;
+    transition: transform 0.3s ease-out;
+}
+.logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.title {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in forwards;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+select, button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+.signature {
+    margin-top: 50px;
+    text-align: center;
+}
+.signature p {
+    margin: 0;
+}
+.signature-line {
+    width: 200px;
+    margin: 10px auto;
+    border-bottom: 2px solid black;
+}
+select:hover, button:hover {
+    border-color: #193ddb;
+    background-color: #193ddb;
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    background-color: #193ddb;
+    color: #fff;
+    font-weight: bold;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:focus, button:hover {
+    background-color: #3e31af;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    .attestation-form {
+        padding: 20px;
+    }
+   
+    .title {
+        font-size: 1.5rem;
+    }
+
+    select, button {
+        font-size: 1rem;
+    }
+}

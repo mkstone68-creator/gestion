@@ -1,0 +1,42 @@
+# Fichiers de configuration sensibles
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.bak
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+.vscode/
+
+# IDE
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (si utilisé)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Fichiers de migration (à supprimer après utilisation)
+migrate_passwords.php
+
+# Fichiers de sauvegarde
+*.sql.bak
+backup/
+
+# Sessions temporaires
+sessions/
+
+# Cache
+cache/
+*.cache
