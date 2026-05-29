@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Installer Apache + PHP 8.2 + extensions depuis ubuntu repos
+# Installer Apache + PHP + extensions
 RUN apt-get update && apt-get install -y \
     apache2 \
     php8.1 \
@@ -14,21 +14,28 @@ RUN apt-get update && apt-get install -y \
     php8.1-xml \
     && rm -rf /var/lib/apt/lists/*
 
-# Ubuntu installe un seul MPM proprement — activer rewrite
+# Activer rewrite
 RUN a2enmod rewrite php8.1
 
-# Copier les fichiers
+# Supprimer la page par défaut d'Ubuntu
+RUN rm -f /var/www/html/index.html
+
+# Copier les fichiers du projet
 COPY . /var/www/html/
 RUN rm -f /var/www/html/Dockerfile
 
-# Permissions
+# Permissions uploads
 RUN mkdir -p /var/www/html/uploads/justifications \
-    && chown -R www-data:www-data /var/www/html/uploads \
+    && chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
     && chmod -R 775 /var/www/html/uploads
 
-# Config Apache : AllowOverride All
-RUN sed -i 's/AllowOverride None/AllowOverride All/g' \
-    /etc/apache2/apache2.conf
+# Config Apache : AllowOverride All + index.php en priorité
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf && \
+    sed -i 's/DirectoryIndex index.html/DirectoryIndex index.php index.html/g' \
+        /etc/apache2/mods-enabled/dir.conf 2>/dev/null || \
+    echo "DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm" \
+        > /etc/apache2/mods-enabled/dir.conf
 
 # PHP production
 RUN echo "display_errors=Off" >> /etc/php/8.1/apache2/php.ini \
